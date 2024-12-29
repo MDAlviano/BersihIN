@@ -1,6 +1,68 @@
+'use client'
+
 import Link from "next/link";
+import { useState } from "react";
+
+const Postingan = () => {
+  return (
+    <div>
+      <div className="flex pb-4 gap-2">
+        <h4 className="w-24">Foto</h4>
+        <div className="flex flex-col flex-1">
+          <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
+          <p className="text-[8px] ">19 jam yang lalu</p>
+          <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
+        </div>
+      </div>
+
+      <div className="flex pb-4 gap-2">
+        <h4 className="w-24">Foto</h4>
+        <div className="flex flex-col flex-1">
+          <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
+          <p className="text-[8px] ">19 jam yang lalu</p>
+          <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
+        </div>
+      </div>
+
+      <div className="flex pb-4 gap-2">
+        <h4 className="w-24">Foto</h4>
+        <div className="flex flex-col flex-1">
+          <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
+          <p className="text-[8px] ">19 jam yang lalu</p>
+          <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const Laporan = () => {
+  return (
+    <div>
+      <div className="flex pb-4 gap-2">
+        <h4 className="w-24">Foto</h4>
+        <div className="flex flex-col flex-1">
+          <h5 className="text-[10px] font-semibold pb-1 border-b-2">100kg sampah plastik</h5>
+          <p className="text-[8px] ">1 jam yang lalu</p>
+          <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
+        </div>
+      </div>
+
+      <div className="flex pb-4 gap-2">
+        <h4 className="w-24">Foto</h4>
+        <div className="flex flex-col flex-1">
+          <h5 className="text-[10px] font-semibold pb-1 border-b-2">100kg sampah plastik</h5>
+          <p className="text-[8px] ">1 jam yang lalu</p>
+          <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Page() {
+  const [activeTab, setActiveTab] = useState("postingan");
+
   return (
     <main className="p-6 ">
       <div className="flex flex-col px-6 pt-6 rounded-t-md bg-color5 shadow-lg border-b-2">
@@ -32,43 +94,33 @@ export default function Page() {
         </div>
 
         <div className="flex my-3 text-[11px] gap-2">
-          <Link href={""}>Edit Profil</Link>
+          <Link href="">Edit Profil</Link>
           <Link href="" className="text-red-500">Keluar</Link>
         </div>
 
         <div className="flex my-2 px-10 gap-2 text-xs font-medium justify-between">
-          <p>Postingan</p>
-          <p>Laporan</p>
+          <p
+            className={`cursor-pointer ${
+              activeTab === "postingan" ? "text-blue-500" : "text-gray-500"
+            }`}
+            onClick={() => setActiveTab("postingan")}
+          >
+            Postingan
+          </p>
+          <p
+            className={`cursor-pointer ${
+              activeTab === "laporan" ? "text-blue-500" : "text-gray-500"
+            }`}
+            onClick={() => setActiveTab("laporan")}
+          >
+            Laporan
+          </p>
         </div>
       </div>
 
       <div className="flex flex-col px-6 pt-4 rounded-b-md bg-color5 shadow-lg">
-        <div className="flex pb-4 gap-2">
-          <h4 className="w-24">Foto</h4>
-          <div className="flex flex-col flex-1">
-            <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
-            <p className="text-[8px] ">19 jam yang lalu</p>
-            <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
-          </div>
-        </div>
-
-        <div className="flex pb-4 gap-2">
-          <h4 className="w-24">Foto</h4>
-          <div className="flex flex-col flex-1">
-            <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
-            <p className="text-[8px] ">19 jam yang lalu</p>
-            <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
-          </div>
-        </div>
-
-        <div className="flex pb-4 gap-2">
-          <h4 className="w-24">Foto</h4>
-          <div className="flex flex-col flex-1">
-            <h5 className="text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat ini</h5>
-            <p className="text-[8px] ">19 jam yang lalu</p>
-            <p className="pt-3 text-[10px]">Baca selengkapnya...</p>
-          </div>
-        </div>
+        {activeTab === "postingan" && <Postingan/>}
+        {activeTab === "laporan" && <Laporan/>}
       </div>
     </main>
   );

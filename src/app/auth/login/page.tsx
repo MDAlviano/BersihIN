@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="w-full h-screen flex flex-col gap-8 py-8 px-10 items-center justify-center bg-color7">
+    <div className="w-full h-screen flex flex-col gap-8 py-8 px-10 items-center bg-color7">
       {/* Logo */}
       <Link href={"/"} className="flex items-center gap-2">
         <span className="rounded-full w-14 h-14 bg-color4"></span>
@@ -85,7 +85,7 @@ export default function Page() {
         </form>
       </div>
       {/* <!-- Sign up redirect --> */}
-      <div className="text-sm">
+      <div className="text-sm mb-4">
         Belum punya akun?
         <Link href="register" className="ml-1 text-color1">
           Daftar di sini.

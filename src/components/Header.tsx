@@ -51,7 +51,7 @@ export default function Header() {
           navOpened
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-0 pointer-events-none"
-        } flex absolute flex-col w-full py-4 text-color3 font-semibold shadow-md bg-color8 transition-all duration-500 ease-in-out transform`}
+        } flex fixed flex-col w-full py-4 text-color3 font-semibold shadow-md bg-color8 transition-all duration-500 ease-in-out transform`}
       >
         <Link
           href="/"

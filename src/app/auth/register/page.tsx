@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="w-full h-screen max-h-screen py-8 px-10 flex flex-col gap-8 justify-center items-center bg-color7">
+    <div className="w-full h-full py-8 px-10 flex flex-col gap-8 items-center bg-color7">
       {/* <!-- Logo --> */}
       <Link href={"/"} className="flex items-center gap-2">
         <span className="rounded-full w-14 h-14 bg-color4"></span>
@@ -22,13 +22,13 @@ export default function Page() {
         {/* <!-- Login Form --> */}
         <form method="" action="" className="flex flex-col gap-1 w-full mt-4">
           {/* <!-- Name --> */}
-          <label className="font-semibold">Nama</label>
+          <label className="font-semibold">Username</label>
           <input
             type="text"
-            name="profilename"
-            id="name-form"
+            name="username"
+            id="username-form"
             required
-            placeholder="Nama"
+            placeholder="Username"
             className="w-full p-2 border-color2 border rounded-md"
           />
 
@@ -104,7 +104,7 @@ export default function Page() {
       </div>
 
       {/* <!-- Login redirect --> */}
-      <div className="text-sm">
+      <div className="text-sm mb-4">
         Sudah punya akun?
         <Link href={"login"} className="ml-1 text-color1">
           Masuk.

@@ -103,7 +103,7 @@ export default function Page() {
             <p className="pt-1 lg:text-lg text-xs">Inspektur kebersihan lokal area Gayamsari</p>
           </div>
           <div className="flex lg:my-5 my-3 lg:text-base text-[11px] lg:gap-8 gap-2">
-            <Link href="">Edit Profil</Link>
+            <Link href="/dashboard/edit">Edit Profil</Link>
             <Link href="" className="text-red-500">Keluar</Link>
           </div>
         </div>

@@ -1,12 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   return (
     <div className="w-full h-screen flex flex-col gap-8 py-8 px-10 items-center bg-color7">
       {/* Logo */}
       <Link href={"/"} className="flex items-center gap-2">
-        <span className="rounded-full w-14 h-14 bg-color4"></span>
-        <h1 className="font-semibold text-2xl">BersihIN</h1>
+        <Image
+          src="/images/bersihin-logo1.webp"
+          alt="logo"
+          width={160}
+          height={0}
+        />
       </Link>
 
       <div className="flex flex-col">

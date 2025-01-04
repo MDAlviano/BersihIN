@@ -3,6 +3,8 @@
 import { Menu, X } from "@geist-ui/icons";
 import { useState } from "react";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
+import Image from "next/image";
 
 export default function Header() {
   const [navOpened, setNavOpened] = useState(false);
@@ -15,6 +17,8 @@ export default function Header() {
     setNavOpened(false);
   };
 
+  const { isLogged } = useAuth();
+
   return (
     <>
       {/* <!-- Header --> */}
@@ -24,15 +28,19 @@ export default function Header() {
           navOpened
             ? "shadow-none border-black border-b-[1px] border-opacity-100"
             : "shadow-md border-opacity-0"
-        } flex sticky top-0 w-full px-6 py-4 justify-between bg-color8 border-black transition-all duration-200`}
+        } flex sticky top-0 w-full px-6 py-3 justify-between bg-color8 border-black transition-all duration-200`}
       >
         <Link
           href="/"
           className="flex items-center gap-2"
           onClick={handleLinkClick}
         >
-          <span className="rounded-full w-8 h-8 bg-color4"></span>
-          <h1 className="font-semibold">BersihIN</h1>
+          <Image
+            src="/images/bersihin-logo1.webp"
+            alt="logo"
+            width={80}
+            height={0}
+          />
         </Link>
         <button
           id="toggle-nav"
@@ -82,12 +90,23 @@ export default function Header() {
           Artikel
         </Link>
         <span className="bg-black h-[1px] mx-6"></span>
-        <Link
-          href="auth/login"
-          className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
-        >
-          Masuk
-        </Link>
+        {isLogged ? (
+          <Link
+            href="/user"
+            className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
+            onClick={handleLinkClick}
+          >
+            Profil
+          </Link>
+        ) : (
+          <Link
+            href="auth/login"
+            className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
+            onClick={handleLinkClick}
+          >
+            Masuk
+          </Link>
+        )}
       </nav>
     </>
   );

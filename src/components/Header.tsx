@@ -36,11 +36,12 @@ export default function Header() {
           onClick={handleLinkClick}
         >
           <Image
-            src="/images/bersihin-logo1.webp"
+            src="/images/bersihin-logo1.png"
             alt="logo"
-            width={80}
+            width={34}
             height={0}
           />
+          <h1 className="font-semibold">BersihIN</h1>
         </Link>
         <button
           id="toggle-nav"

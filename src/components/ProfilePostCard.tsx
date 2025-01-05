@@ -4,10 +4,10 @@ import Link from "next/link";
 import React from "react";
 
 interface ProfilePostCardProps {
-  post: Post
+  post: Post;
 }
 
-export default function ProfilePostCard({post}: ProfilePostCardProps) {
+export default function ProfilePostCard({ post }: ProfilePostCardProps) {
   return (
     <>
       <div className="flex pb-4 gap-2">

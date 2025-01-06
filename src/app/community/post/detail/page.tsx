@@ -1,13 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import exampleImg from "../../../../public/images/example-banjir-kanal.png";
-import { ThumbsUp, ThumbsDown, MessageCircle } from "@geist-ui/icons";
+import exampleImg from "../../../../../public/images/example-banjir-kanal.png";
+import { ThumbsUp, ThumbsDown, MessageCircle, Plus, ChevronDown, ChevronUp } from "@geist-ui/icons";
+import { useState } from "react";
 
 export default function Page() {
+
+  const [replyOpened, setReplyOpened] = useState(false);
+
+  const toggleReply = () => {
+    setReplyOpened(!replyOpened);
+  }
+
   const triggerBtn = () => {
     alert("cliced!");
   };
+
+  const infoAccount = ["BersihIN", "15 jam"];
+
+  const category = ["Informasi", "Banjir Kanal Barat", "Sungai"];
 
   const detailComment = [
     ["sigma", "17 jam", "berharap sungai ini lebih diperhatikan", "100"],
@@ -28,13 +40,40 @@ export default function Page() {
           <h6 className="self-center">{totalComment}</h6>
         </div>
         <Image src={exampleImg} alt="leadership" className="my-3 lg:my-0 rounded-lg w-full h-fit lg:w-[570px] lg:h-[320px]" />
-        {/* content */}
         <div className="flex flex-col gap-1 lg:gap-3 self-center">
-          <h4 className="text-lg lg:text-2xl font-bold">Update kondisi terkini sungai Banjir Kanal Barat.</h4>
-          <p className="h-14 overflow-hidden lg:h-fit text-sm lg:text-sm font-medium self-center">
+          {/* header */}
+          <div className="flex flex-row gap-2">
+            <span className="rounded-full w-14 h-14 border-2 border-black bg-color4 self-center"></span>
+            <div className="flex flex-row w-11/12 justify-between self-center">
+              <div id="info-account" className="flex flex-col">
+                <h3 id="username" className="font-bold text-lg">
+                  {infoAccount[0]}
+                </h3>
+                <h6 id="uploaded_at" className="text-xs">
+                  {infoAccount[1]} yang lalu
+                </h6>
+              </div>
+              <button onClick={triggerBtn} id="follow_button" className="flex flex-row self-center bg-color1 h-fit py-1 px-2 gap-2 rounded-lg cursor-pointer hover:bg-green-500 text-white text-sm font-medium">
+                Ikuti
+                <Plus size={16} color="#fff" className="self-center" />
+              </button>
+            </div>
+          </div>
+          {/* category */}
+          <div id="category" className="flex flex-row my-2 lg:my-1 gap-2">
+            {category.map((detail, index) => (
+              <div key={index} className="w-fit flex flex-row gap-1 px-2 py-1 bg-color1 hover:bg-green-500 rounded-lg text-white text-[9px] cursor-pointer">
+                <h6 className="self-center">{detail}</h6>
+              </div>
+            ))}
+          </div>
+          {/* content */}
+          <h4 className="text-lg lg:text-xl font-bold">Update kondisi terkini sungai Banjir Kanal Barat.</h4>
+          <p className="text-sm lg:text-sm font-medium self-center">
             Sungai Banjir Kanal Barat kini sudah terlihat jauh lebih bersih sejak kegiatan pembersihan terakhir kali. Ini menunjukkan betapa kuatnya pengaruh kita sebagai komunitas dalam menjaga kebersihan lingkungan, terlebih dengan adanya
             platform komunitas seperti BersihIN. Mari kita lanjutkan perjuangan kita kedepannya!
           </p>
+          {/* action */}
           <div className="hidden w-fit lg:flex flex-row gap-1 px-3 py-1 bg-color1 hover:bg-green-500 rounded-lg text-white text-[10px] cursor-pointer">
             <MessageCircle size={14} />
             <h6 className="self-center">{totalComment}</h6>
@@ -48,7 +87,7 @@ export default function Page() {
           {totalComment} Komentar
         </h4>
         {/* add comment */}
-        <div id="add-comment" className="w-full flex flex-row justify-evenly gap-5 lg:px-3 my-4 lg:my-3">
+        <div id="add-comment" className="w-full flex flex-row justify-evenly lg:px-3 my-4 lg:my-3">
           <span className="rounded-full w-14 h-14 bg-color4"></span>
           <div className="w-4/5 lg:w-11/12 flex flex-col gap-2 lg:gap-3">
             <input id="message" type="text" className="bg-color5 lg:bg-color7 border-b lg:border-b-2 border-black focus:outline-none" />
@@ -62,7 +101,7 @@ export default function Page() {
         {/* list comment */}
         {detailComment.map((detail, index) => (
           <div key={index} id="comment-card" className="flex flex-row my-3 lg:my-6 lg:mx-14 py-3 px-1 lg:px-8 bg-color5 lg:border border-color6 rounded-2xl">
-            <span className="rounded-full w-11 h-11 bg-color4 self-center"></span>
+            <span className="rounded-full w-16 h-16 bg-color4"></span>
             <div className="mx-4">
               <div id="header" className="flex flex-row gap-2 lg:gap-3">
                 <h4 id="username" className="font-semibold text-sm lg:text-base">
@@ -83,7 +122,11 @@ export default function Page() {
                   </p>
                 </div>
                 <ThumbsDown size={18} className="cursor-pointer" />
+                <button onClick={triggerBtn} className="bg-none text-black text-xs lg:text-sm font-medium self-center">Balas</button>
               </div>
+              <button onClick={toggleReply} id="show_reply_comment" className="flex flex-row bg-color6 gap-2 my-3 lg:my-2 py-[6px] px-4 rounded-3xl text-xs lg:text-sm font-semibold">
+                <ChevronDown size={18}/>1 balasan
+              </button>
             </div>
           </div>
         ))}

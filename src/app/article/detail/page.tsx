@@ -31,7 +31,7 @@ export default function Page() {
         {/* content */}
         <div className="flex flex-col gap-1 lg:gap-3 self-center">
           <h4 className="text-lg lg:text-2xl font-bold">Update kondisi terkini sungai Banjir Kanal Barat.</h4>
-          <p className="h-14 overflow-hidden lg:h-fit text-sm lg:text-sm font-medium self-center">
+          <p className="text-sm lg:text-sm font-medium self-center">
             Sungai Banjir Kanal Barat kini sudah terlihat jauh lebih bersih sejak kegiatan pembersihan terakhir kali. Ini menunjukkan betapa kuatnya pengaruh kita sebagai komunitas dalam menjaga kebersihan lingkungan, terlebih dengan adanya
             platform komunitas seperti BersihIN. Mari kita lanjutkan perjuangan kita kedepannya!
           </p>

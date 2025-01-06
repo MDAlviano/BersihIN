@@ -5,11 +5,17 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <>
-      <div className="flex flex-col px-6 py-14 gap-6 bg-color3 text-white">
+      <div className="flex flex-col px-6 py-10 gap-6 bg-color3 text-white">
         {/* Logo n desc */}
         <div className="flex flex-col gap-4">
-          <Link href="/" className="flex items-center">
-            <Image src="/images/bersihin-logo2.webp" alt="logo" width={160} height={0}/>
+          <Link href="/" className="flex gap-2 items-center">
+            <Image
+              src="/images/bersihin-logo2.png"
+              alt="logo"
+              width={60}
+              height={0}
+            />
+            <h1 className="text-xl font-semibold">BersihIN</h1>
           </Link>
           <h6 className="text-sm font-light">
             BersihIN adalah sebuah platform yang memfasilitasi masyarakat dalam
@@ -43,7 +49,7 @@ export default function Footer() {
               official.bersihin@contact.id
             </Link>
             <Link
-              href="https://wa.me/62882005722916"
+              href=""
               target="_blank"
               className="flex gap-2 py-2 items-center"
             >

@@ -1,10 +1,12 @@
 "use client";
 
+import FaqItem from "@/components/FaqItem";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
+import { faqs } from "@/lib/dummyData";
 
 export default function Home() {
-  const {isLogged} = useAuth()
+  const { isLogged } = useAuth();
 
   return (
     <>
@@ -41,7 +43,29 @@ export default function Home() {
         </div>
       </section>
       <section id="map" className="px-10 py-14">
-        <h1 >Cek Kondisi Terkini</h1>
+        <h1>Cek Kondisi Terkini</h1>
+      </section>
+
+      {/* FAQ */}
+      {/* <section id="faq" className="">
+        <div className="">
+
+        </div>
+      </section> */}
+      <section id="faq" className="pt-10">
+        <div className="flex flex-col mx-6 my-10 px-6 py-10 gap-8 rounded-xl items-center bg-color1 shadow transition duration-100">
+          <h1 className="text-4xl font-bold text-color7 text-center">FAQ</h1>
+          <div className="flex flex-col w-full gap-4">
+            {faqs.map((faq, index) => (
+              <FaqItem
+                key={index}
+                index={index + 1}
+                question={faq.question}
+                answer={faq.answer}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );

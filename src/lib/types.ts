@@ -8,3 +8,9 @@ export interface Post {
   downvotes: number;
   commentsCount: number;
 }
+
+export interface FaqItemProps {
+  question: string;
+  answer: string;
+  index: number;
+}

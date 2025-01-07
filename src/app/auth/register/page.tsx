@@ -93,13 +93,13 @@ export default function Page() {
 
           <div className="mt-4 text-xs text-center">
             Dengan mendaftar, kamu menyetujui
-            <span id="tnc-trigger" className="text-color1 hover:cursor-pointer">
+            <span id="tnc-trigger" className="text-color1 mx-1 hover:cursor-pointer">
               Syarat & Ketentuan
             </span>
             serta
             <span
               id="ppolicy-trigger"
-              className="text-color1 hover:cursor-pointer"
+              className="text-color1 mx-1 hover:cursor-pointer"
             >
               Kebijakan Privasi
             </span>

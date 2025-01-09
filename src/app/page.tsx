@@ -2,7 +2,6 @@
 
 import FaqItem from "@/components/FaqItem";
 import { useAuth } from "@/context/AuthContext";
-import { ArrowRight } from "@geist-ui/icons";
 import Link from "next/link";
 import { faqs } from "@/lib/dummyData";
 import Image from "next/image";
@@ -61,7 +60,7 @@ export default function Home() {
         />
         <Link href="/map">
           <button className="flex  items-center gap-2 w-auto py-3 px-5 bg-color1 rounded-md text-sm text-color7">
-            Cek di sini <ArrowRight size={20}/>
+            {/* Cek di sini <ArrowRight size={20}/> */}
           </button>
         </Link>
       </section>

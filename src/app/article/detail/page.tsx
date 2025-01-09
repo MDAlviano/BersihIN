@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import exampleImg from "../../../../public/images/example-banjir-kanal.png";
-import { ThumbsUp, ThumbsDown, MessageCircle } from "@geist-ui/icons";
+import { LuThumbsUp, LuThumbsDown, LuMessageCircleMore,  } from "react-icons/lu";
 
 export default function Page() {
   const triggerBtn = () => {
@@ -24,7 +24,7 @@ export default function Page() {
       {/* article */}
       <div id="article-post" className="flex flex-col-reverse lg:grid lg:grid-cols-2 my-4">
         <div className="lg:hidden w-fit flex flex-row gap-1 px-3 py-1 bg-color1 hover:bg-green-500 rounded-xl text-white text-[10px] cursor-pointer">
-          <MessageCircle size={14} />
+          <LuMessageCircleMore size={14} />
           <h6 className="self-center">{totalComment}</h6>
         </div>
         <Image src={exampleImg} alt="leadership" className="my-3 lg:my-0 rounded-lg w-full h-fit lg:w-[570px] lg:h-[320px]" />
@@ -36,7 +36,7 @@ export default function Page() {
             platform komunitas seperti BersihIN. Mari kita lanjutkan perjuangan kita kedepannya!
           </p>
           <div className="hidden w-fit lg:flex flex-row gap-1 px-3 py-1 bg-color1 hover:bg-green-500 rounded-lg text-white text-[10px] cursor-pointer">
-            <MessageCircle size={14} />
+            <LuMessageCircleMore size={14} />
             <h6 className="self-center">{totalComment}</h6>
           </div>
         </div>
@@ -77,12 +77,12 @@ export default function Page() {
               </p>
               <div id="action" className="flex flex-row gap-4 my-2 lg:my-3 text-gray-500">
                 <div id="like" className="flex flex-row gap-1 text-xs lg:text-sm">
-                  <ThumbsUp size={18} className="cursor-pointer" />
+                  <LuThumbsUp size={18} className="cursor-pointer" />
                   <p id="totalLike" className="self-center">
                     {detail[3]}
                   </p>
                 </div>
-                <ThumbsDown size={18} className="cursor-pointer" />
+                <LuThumbsDown size={18} className="cursor-pointer" />
               </div>
             </div>
           </div>

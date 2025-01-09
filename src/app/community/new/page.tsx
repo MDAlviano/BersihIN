@@ -1,4 +1,4 @@
-import { PlusSquare } from "@geist-ui/icons";
+import { BsPlusSquare } from "react-icons/bs";
 
 export default function Page() {
     return(
@@ -14,7 +14,7 @@ export default function Page() {
                 <textarea id="input-description" name="description" rows={5} placeholder="Bagikan ceritamu disini..." className="py-3 px-7 rounded-lg border border-color1 bg-color5 focus:outline-none focus:border-2"></textarea>
                 <div className="flex flex-col gap-4 py-4 px-6 rounded-lg border border-color1">
                     <h5 className="text-[#8A8A8A]">Tambahkan kategori:</h5>
-                    <button id="btn-add-category" className="w-full bg-color1 py-3 text-white font-semibold rounded-xl"><PlusSquare className="mx-auto"/></button>
+                    <button id="btn-add-category" className="w-full bg-color1 py-3 text-white font-semibold rounded-xl"><BsPlusSquare className="mx-auto"/></button>
                 </div>
                 <button id="btn-submit" className="w-full bg-color1 py-3 text-white font-semibold rounded-xl my-4 lg:my-8">Upload</button>
             </div>

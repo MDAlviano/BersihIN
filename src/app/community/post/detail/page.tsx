@@ -5,8 +5,16 @@ import exampleImg from "../../../../../public/images/example-banjir-kanal.png";
 import { LuThumbsUp, LuThumbsDown, LuMessageCircleMore,  } from "react-icons/lu";
 import { GoPlus, GoChevronDown } from "react-icons/go";
 import { useState } from "react";
+import { IoAdd } from "react-icons/io5";
+import { FaRegComment } from "react-icons/fa";
 
-export default function Page() {
+interface Params {
+  id: string;
+}
+
+export default function Page({params}: {params: Params}) {
+  const id = params.id
+  console.log(id)
 
   const [replyOpened, setReplyOpened] = useState(false);
 
@@ -15,7 +23,7 @@ export default function Page() {
   }
 
   const triggerBtn = () => {
-    alert("cliced!");
+    alert("clicked!");
   };
 
   const infoAccount = ["BersihIN", "15 jam"];
@@ -44,7 +52,7 @@ export default function Page() {
         <div className="flex flex-col gap-1 lg:gap-3 self-center">
           {/* header */}
           <div className="flex flex-row gap-2">
-            <span className="rounded-full w-14 h-14 border-2 border-black bg-color4 self-center"></span>
+            <span className="rounded-full p-6 border-2 border-black bg-color4 self-center"></span>
             <div className="flex flex-row w-11/12 justify-between self-center">
               <div id="info-account" className="flex flex-col">
                 <h3 id="username" className="font-bold text-lg">

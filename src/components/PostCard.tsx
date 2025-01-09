@@ -1,4 +1,6 @@
 import { IoIosAdd, IoIosMore } from "react-icons/io";
+import { TbTriangle } from "react-icons/tb";
+import { FaRegComment } from "react-icons/fa6";
 import { Post } from "@/lib/types";
 
 interface PostCardProps {
@@ -34,7 +36,7 @@ export default function PostCard({ post }: PostCardProps) {
       </div>
 
       {/* Post tags */}
-      <div className="flex w-full gap-2">
+      <div className="flex w-full gap-2 mt-2">
         <div className="bg-color1 px-2 py-[3px] rounded-lg font-light text-xs text-color7">
           Test
         </div>
@@ -56,13 +58,13 @@ export default function PostCard({ post }: PostCardProps) {
       <span className="w-full h-48 bg-slate-400">image</span>
 
       {/* Action bar */}
-      <div className="flex w-full gap-2 items-center">
+      <div className="flex w-full gap-2 pt-2 items-center">
         <div className="flex bg-color1 py-1 rounded-lg font-light text-xs text-color7">
-          <div className="px-2 h-full">{formatNumber(post.upvotes)}</div>
-          <div className="px-2 border-l">v</div>
+          <div className="flex px-2 h-full items-center gap-1"><TbTriangle /> {formatNumber(post.upvotes)}</div>
+          <div className="flex px-2 border-l items-center"><TbTriangle className="rotate-180" /></div>
         </div>
-        <div className="bg-color1 px-2 py-1 rounded-lg font-light text-xs text-color7">
-          c {formatNumber(post.commentsCount)}
+        <div className="flex gap-1 items-center bg-color1 px-2 py-1 rounded-lg font-light text-xs text-color7">
+          <FaRegComment /> {formatNumber(post.commentsCount)}
         </div>
         <IoIosMore className="ml-auto" />
       </div>

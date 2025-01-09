@@ -19,3 +19,7 @@ body {
   background: var(--background);
   font-family: var(--font-inter), sans-serif;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

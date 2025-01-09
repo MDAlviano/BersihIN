@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ChevronRight } from "@geist-ui/icons";
 import { FaqItemProps } from "@/lib/types";
+import { FaChevronRight } from "react-icons/fa6";
 
 export default function FaqItem({ question, answer, index }: FaqItemProps) {
   const [faqOpened, setFaqOpened] = useState(false);
@@ -24,7 +24,7 @@ export default function FaqItem({ question, answer, index }: FaqItemProps) {
           </span>
           {question}
         </div>
-        <ChevronRight
+        <FaChevronRight
           size={16}
           className={`${
             faqOpened ? "rotate-90" : ""

@@ -63,7 +63,7 @@ export default function Page() {
           {/* <!-- Confirm Password --> */}
           <label className="font-semibold">Konfirmasi Password</label>
           <input
-            type="conf-password"
+            type="password"
             name="conf-password"
             id="paassword-form"
             required

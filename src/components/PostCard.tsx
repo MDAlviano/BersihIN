@@ -20,7 +20,7 @@ function formatNumber(number: number) {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <div className="flex flex-col py-4 px-6 my-2 gap-2 bg-color8">
+    <div className="flex flex-col py-4 px-6 gap-2 bg-color8">
       {/* Post head */}
       <div className="flex w-full items-center">
         <div className="flex w-full">

@@ -2,6 +2,8 @@ import { IoIosAdd, IoIosMore } from "react-icons/io";
 import { TbTriangle } from "react-icons/tb";
 import { FaRegComment } from "react-icons/fa6";
 import { Post } from "@/lib/types";
+import Image from "next/image";
+import exampleImg from "../../public/images/example-banjir-kanal.png"
 
 interface PostCardProps {
   post: Post;
@@ -55,7 +57,7 @@ export default function PostCard({ post }: PostCardProps) {
       <p className="line-clamp-3 text-sm">{post.description}</p>
 
       {/* Image */}
-      <span className="w-full h-48 bg-slate-400">image</span>
+      <Image src={exampleImg} alt="example" className="w-full h-48 bg-slate-400" />
 
       {/* Action bar */}
       <div className="flex w-full gap-2 pt-2 items-center">

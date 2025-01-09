@@ -1,8 +1,9 @@
 'use server'
 
 import {auth} from "@/../auth";
-import Link from "next/link";
+// import Link from "next/link";
 import UserProfile from "@/components/UserProfilePost&Report";
+import ProfileButton from "@/components/ProfileButton";
 
 const Page= async () => {
   const session = await auth()
@@ -37,10 +38,8 @@ const Page= async () => {
             <p className="font-light lg:text-lg text-xs">{session?.user?.name}</p>
             {/*<p className="pt-1 lg:text-lg text-xs">Inspektur kebersihan lokal area Gayamsari</p>*/}
           </div>
-          <div className="flex lg:my-5 my-3 lg:text-base text-[11px] lg:gap-8 gap-2">
-            <Link href="/dashboard/edit">Edit Profil</Link>
-            <Link href="/auth/signout" className="text-red-500">Keluar</Link>
-          </div>
+
+          <ProfileButton />
         </div>
 
         <UserProfile />

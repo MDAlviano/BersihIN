@@ -37,9 +37,9 @@ export default function Page() {
           </div>
         </div>
         {/* add laporan button desktop */}
-        <button className="w-4/6 hidden lg:flex mx-auto py-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
+        <Link href="details/add" className="w-4/6 hidden lg:flex mx-auto py-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
           <IoAdd size={34} className="mx-auto" />
-        </button>
+        </Link>
       </div>
 
       {/* list laporan section */}

@@ -5,6 +5,7 @@ import { hashSync } from "bcrypt-ts"
 import { prisma } from "@/lib/prisma"
 import { redirect } from "next/navigation"
 import { signIn } from "@/../auth"
+import { signOut } from "@/../auth"
 import { AuthError } from "next-auth"
 
 export const SignUpCredentials = async(prevState: unknown, formData: FormData) => {
@@ -58,5 +59,15 @@ export const SignInCredentials = async(prevState: unknown, formData: FormData) =
     }
 
     throw error
+  }
+}
+
+export const SignOutAction = async () => {
+  try {
+    await signOut({ redirect: true }) // Tidak langsung redirect agar dapat dikontrol
+    redirect("/auth/login") // Redirect ke halaman login setelah sign out
+  } catch (error) {
+    console.error("Error during sign out:", error)
+    return { message: "Terjadi kesalahan saat keluar." }
   }
 }

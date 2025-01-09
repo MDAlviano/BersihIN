@@ -45,8 +45,9 @@ export default function Page() {
       <div className="flex flex-col gap-4">
         {posts.map((post) => (
           <Link
-            href={`community/${post.id}`}
+            // href={`community/${post.id}`}
             key={post.id}
+            href="community/post/detail"
             className="flex flex-col"
           >
             <PostCard post={post} />

@@ -1,43 +1,12 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
-
-function Postingan() {
-  return (
-    <div>
-      <div className="flex pb-4 gap-2">
-        <h4 className="lg:w-44 w-24">Foto</h4>
-        <div className="flex flex-col flex-1">
-          <h5 className="lg:text-base text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat
-            ini</h5>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-          <p className="pt-3 lg:text-sm text-[10px]">Baca selengkapnya...</p>
-        </div>
-      </div>
-
-      <div className="flex pb-4 gap-2">
-        <h4 className="lg:w-44 w-24">Foto</h4>
-        <div className="flex flex-col flex-1">
-          <h5 className="lg:text-base text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat
-            ini</h5>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-          <p className="pt-3 lg:text-sm text-[10px]">Baca selengkapnya...</p>
-        </div>
-      </div>
-
-      <div className="flex pb-4 gap-2">
-        <h4 className="lg:w-44 w-24">Foto</h4>
-        <div className="flex flex-col flex-1">
-          <h5 className="lg:text-base text-[10px] font-semibold pb-1 border-b-2">Update kondisi banjir kanal saat
-            ini</h5>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-          <p className="pt-3 lg:text-sm text-[10px]">Baca selengkapnya...</p>
-        </div>
-      </div>
-    </div>
-  )
-}
+import posts from "@/lib/dummyData";
+import exampleImg from "../../../public/images/example-banjir-kanal.png";
+import ProfilePostCard from "@/components/ProfilePostCard";
+import { LuLogOut } from "react-icons/lu";
+import Image from "next/image";
 
 function Laporan() {
   const laporanData = [
@@ -48,25 +17,25 @@ function Laporan() {
   return (
     <div>
       {laporanData.map((laporan) => (
-        <div key={laporan.id} className="flex pb-4 gap-2">
-          <h4 className="lg:w-44 w-24">Foto</h4>
-          <div className="flex flex-col flex-1">
-            <Link href={`/laporan/${laporan.id}`}>
-              <h5 className="lg:text-base text-[10px] font-semibold pb-1 border-b-2 cursor-pointer">
+        <Link key={laporan.id} href={`/laporan/${laporan.id}`}>
+          <div className="flex my lg:my-7 lg:gap-2">
+            <Image
+              src={exampleImg}
+              alt="example image"
+              className="size-1/2 rounded-lg"
+            />
+            <div className="flex flex-col flex-1 my-5 mx-4">
+              <h5 className="lg:text-xl text-xs font-semibold">
                 {laporan.title}
               </h5>
-            </Link>
-            <p className="lg:text-xs text-[8px]">{laporan.time}</p>
-            <Link href={`/laporan/${laporan.id}`}>
-              <p className="pt-3 lg:text-sm text-[10px] cursor-pointer">
-                Baca selengkapnya...
-              </p>
-            </Link>
+              <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
+              <p className="lg:text-xs text-[8px]">{laporan.time}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
-  )
+  );
 }
 
 export default function Page() {
@@ -75,10 +44,9 @@ export default function Page() {
   return (
     <main className="lg:px-20 p-6">
       <div className="flex flex-col lg:px-24 lg:pt-12 px-6 pt-6 rounded-t-md bg-color5 shadow-lg border-b-2">
-        <div className="flex lg:justify-center lg:gap-60 pb-5 gap-4">
+        <div className="flex lg:justify-center lg:gap-64 pb-5 gap-4">
           {/* Foto profil */}
           <div className="lg:w-40 lg:h-40 w-20 h-20 items-center bg-color1 rounded-full">
-            profil
           </div>
           <div className="flex items-center justify-between lg:pl-8 lg:gap-8 gap-4">
             <div className="flex flex-col items-center">
@@ -98,13 +66,19 @@ export default function Page() {
 
         <div className="lg:px-36">
           <div>
-            <h2 className="font-semibold lg:text-xl text-sm">Inspektur Alviano Sigmatus</h2>
+            <h2 className="font-semibold lg:text-xl text-sm">
+              Inspektur Alviano Sigmatus
+            </h2>
             <p className="font-light lg:text-lg text-xs">@sigmavin</p>
-            <p className="pt-1 lg:text-lg text-xs">Inspektur kebersihan lokal area Gayamsari</p>
+            <p className="pt-1 lg:text-lg text-xs">
+              Inspektur kebersihan lokal area Gayamsari
+            </p>
           </div>
           <div className="flex lg:my-5 my-3 lg:text-base text-[11px] lg:gap-8 gap-2">
             <Link href="/dashboard/edit">Edit Profil</Link>
-            <Link href="" className="text-red-500">Keluar</Link>
+            <Link href="" className="text-red-500 flex gap-1 items-center">
+              <LuLogOut /> Keluar
+            </Link>
           </div>
         </div>
 
@@ -129,8 +103,10 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col lg:px-60 lg:pb-6 px-6 lg:pt-8 pt-4 rounded-b-md bg-color5 shadow-lg">
-        {activeTab === "postingan" && <Postingan/>}
-        {activeTab === "laporan" && <Laporan/>}
+      {activeTab === "postingan" && posts.map((post) => (
+          <ProfilePostCard key={post.id} post={post}/>
+        ))}
+        {activeTab === "laporan" && <Laporan />}
       </div>
     </main>
   );

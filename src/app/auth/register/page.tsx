@@ -4,9 +4,9 @@ import { useActionState } from "react"
 import { useFormStatus } from "react-dom"
 import Link from "next/link"
 import Image from "next/image"
-import { SignInCredentials } from "@/lib/action"
+import { SignUpCredentials } from "@/lib/action"
 
-const SignInButton = () => {
+const SignUpButton = () => {
   const {pending} = useFormStatus()
 
   return (
@@ -21,7 +21,7 @@ const SignInButton = () => {
 }
 
 export default function Page() {
-  const [state, formAction] = useActionState(SignInCredentials, null)
+  const [state, formAction] = useActionState(SignUpCredentials, null)
 
   return (
     <div className="w-full h-full py-8 px-10 flex flex-col gap-8 items-center bg-color7">
@@ -53,6 +53,7 @@ export default function Page() {
               <span className="font-medium">{ state?.message }</span>
             </div>
           ) : null }
+
           {/* <!-- Name --> */}
           <div>
             <label
@@ -129,7 +130,7 @@ export default function Page() {
           </div>
 
           {/* <!-- Signup btn --> */}
-          <SignInButton />
+          <SignUpButton />
 
           <div className="flex items-center my-1">
             <span className="w-full h-[1px] bg-[#BBBBBB]"></span>

@@ -1,6 +1,5 @@
 import { Post } from "@/lib/types";
 import Image from "next/image";
-import React from "react";
 import exampleImg from "../../public/images/example-banjir-kanal.png";
 
 interface ProfilePostCardProps {

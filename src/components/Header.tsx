@@ -63,19 +63,19 @@ export default function Header() {
             Home
           </Link>
           <Link
-            href="map"
+            href="/map"
             className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
           >
             Lihat Peta
           </Link>
           <Link
-            href="community"
+            href="/community"
             className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
           >
             Komunitas
           </Link>
           <Link
-            href="article"
+            href="/article"
             className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
           >
             Artikel
@@ -116,21 +116,21 @@ export default function Header() {
           Home
         </Link>
         <Link
-          href="map"
+          href="/map"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
           Lihat Peta
         </Link>
         <Link
-          href="community"
+          href="/community"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
           Komunitas
         </Link>
         <Link
-          href="article"
+          href="/article"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
@@ -147,7 +147,7 @@ export default function Header() {
           </Link>
         ) : (
           <Link
-            href="auth/login"
+            href="/auth/login"
             className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
             onClick={handleLinkClick}
           >

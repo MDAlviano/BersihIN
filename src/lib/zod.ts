@@ -1,15 +1,22 @@
 import { object, string } from 'zod'
 
 export const SignInSchema = object({
-  name: string().min(3, "Username must be more than 3 characters"),
-  email: string().email("Invalid email address"),
+  email: string().email("Alamat email salah"),
   password: string()
-    .min(8, "Password must be at least 8 characters")
-    .max(24, "Password must be less than 32 characters"),
+    .min(8, "Password harus lebih dari 8 huruf")
+    .max(24, "Password tidak bisa lebih dari 24 huruf"),
+})
+
+export const SignUpSchema = object({
+  name: string().min(3, "Nama pengguna harus lebih dari 3 huruf"),
+  email: string().email("Alamat email salah"),
+  password: string()
+    .min(8, "Password harus lebih dari 8 huruf")
+    .max(24, "Password tidak bisa lebih dari 24 huruf"),
   ConfirmPassword: string()
-    .min(8, "Password must be at least 8 characters")
-    .max(24, "Password must be less than 32 characters"),
+    .min(8, "Password harus lebih dari 8 huruf")
+    .max(24, "Password tidak bisa lebih dari 24 huruf"),
 }).refine((data) => data.password === data.ConfirmPassword, {
-  message: "Password does not match",
+  message: "Password tidak sama",
   path:["ConfirmPassword"],
 })

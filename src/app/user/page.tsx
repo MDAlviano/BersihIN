@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { MoreHorizontal } from "@geist-ui/icons";
+import { IoIosMore } from "react-icons/io";
 import exampleImg from "../../../public/images/example-banjir-kanal.png";
 import Image from "next/image";
 
@@ -99,7 +99,7 @@ export default function Page() {
               Ikuti
             </button>
             <button id="more-btn" className="w-fit p-[6px] lg:p-2 bg-color1 hover:opacity-80 transition duration-100 rounded-xl">
-              <MoreHorizontal color="#fff" />
+              <IoIosMore color="#fff" />
             </button>
           </div>
         </div>

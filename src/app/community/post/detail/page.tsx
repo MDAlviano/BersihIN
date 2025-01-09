@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import exampleImg from "../../../../../public/images/example-banjir-kanal.png";
-import { ThumbsUp, ThumbsDown, MessageCircle, Plus, ChevronDown, ChevronUp } from "@geist-ui/icons";
 import { useState } from "react";
+import { IoAdd } from "react-icons/io5";
+import { FaRegComment } from "react-icons/fa";
 
-export default function Page() {
+interface Params {
+  id: string;
+}
+
+export default function Page({params}: {params: Params}) {
+  const id = params.id
+  console.log(id)
 
   const [replyOpened, setReplyOpened] = useState(false);
 
@@ -14,7 +21,7 @@ export default function Page() {
   }
 
   const triggerBtn = () => {
-    alert("cliced!");
+    alert("clicked!");
   };
 
   const infoAccount = ["BersihIN", "15 jam"];
@@ -36,14 +43,14 @@ export default function Page() {
       {/* article */}
       <div id="article-post" className="flex flex-col-reverse lg:grid lg:grid-cols-2 my-4">
         <div className="lg:hidden w-fit flex flex-row gap-1 px-3 py-1 bg-color1 hover:bg-green-500 rounded-xl text-white text-[10px] cursor-pointer">
-          <MessageCircle size={14} />
+          <FaRegComment size={14} />
           <h6 className="self-center">{totalComment}</h6>
         </div>
         <Image src={exampleImg} alt="leadership" className="my-3 lg:my-0 rounded-lg w-full h-fit lg:w-[570px] lg:h-[320px]" />
         <div className="flex flex-col gap-1 lg:gap-3 self-center">
           {/* header */}
           <div className="flex flex-row gap-2">
-            <span className="rounded-full w-14 h-14 border-2 border-black bg-color4 self-center"></span>
+            <span className="rounded-full p-6 border-2 border-black bg-color4 self-center"></span>
             <div className="flex flex-row w-11/12 justify-between self-center">
               <div id="info-account" className="flex flex-col">
                 <h3 id="username" className="font-bold text-lg">
@@ -55,7 +62,7 @@ export default function Page() {
               </div>
               <button onClick={triggerBtn} id="follow_button" className="flex flex-row self-center bg-color1 h-fit py-1 px-2 gap-2 rounded-lg cursor-pointer hover:bg-green-500 text-white text-sm font-medium">
                 Ikuti
-                <Plus size={16} color="#fff" className="self-center" />
+                <IoAdd size={16} color="#fff" className="self-center" />
               </button>
             </div>
           </div>
@@ -75,7 +82,7 @@ export default function Page() {
           </p>
           {/* action */}
           <div className="hidden w-fit lg:flex flex-row gap-1 px-3 py-1 bg-color1 hover:bg-green-500 rounded-lg text-white text-[10px] cursor-pointer">
-            <MessageCircle size={14} />
+            {/* <MessageCircle size={14} /> */}
             <h6 className="self-center">{totalComment}</h6>
           </div>
         </div>
@@ -116,16 +123,16 @@ export default function Page() {
               </p>
               <div id="action" className="flex flex-row gap-4 my-2 lg:my-3 text-gray-500">
                 <div id="like" className="flex flex-row gap-1 text-xs lg:text-sm">
-                  <ThumbsUp size={18} className="cursor-pointer" />
+                  {/* <ThumbsUp size={18} className="cursor-pointer" /> */}
                   <p id="totalLike" className="self-center">
                     {detail[3]}
                   </p>
                 </div>
-                <ThumbsDown size={18} className="cursor-pointer" />
+                {/* <ThumbsDown size={18} className="cursor-pointer" /> */}
                 <button onClick={triggerBtn} className="bg-none text-black text-xs lg:text-sm font-medium self-center">Balas</button>
               </div>
               <button onClick={toggleReply} id="show_reply_comment" className="flex flex-row bg-color6 gap-2 my-3 lg:my-2 py-[6px] px-4 rounded-3xl text-xs lg:text-sm font-semibold">
-                <ChevronDown size={18}/>1 balasan
+                {/* <ChevronDown size={18}/>1 balasan */}
               </button>
             </div>
           </div>

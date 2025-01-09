@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Plus } from "@geist-ui/icons";
+import { IoAdd } from "react-icons/io5";
 import exampleTrashImg from "../../../../public/images/sampah_example.png";
 
 export default function Page() {
@@ -18,7 +18,7 @@ export default function Page() {
       <div id="info" className="w-full self-center">
         {/* nama wilayah */}
         <div id="header" className="flex flex-col gap-4 my-3">
-          <h1 className="font-semibold text-[38px] self-center">Semarang Tengah</h1>
+          <h1 className="font-semibold text-[38px] text-center">Semarang Tengah</h1>
           <div className="w-full hidden lg:flex justify-center">
             <span className="w-3/5 h-[1px] bg-[#D9D9D9]"></span>
           </div>
@@ -37,7 +37,7 @@ export default function Page() {
         </div>
         {/* add laporan button desktop */}
         <button className="w-4/6 hidden lg:flex mx-auto py-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
-          <Plus size={34} className="mx-auto" />
+          <IoAdd size={34} className="mx-auto" />
         </button>
       </div>
 
@@ -65,7 +65,7 @@ export default function Page() {
         ))}
         {/* add laporan button mobile */}
         <button className="absolute lg:hidden bottom-5 right-7 p-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
-          <Plus size={30} className="mx-auto" />
+          <IoAdd size={30} className="mx-auto" />
         </button>
       </div>
     </div>

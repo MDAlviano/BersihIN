@@ -1,10 +1,10 @@
 "use client";
 
-import { Menu, X } from "@geist-ui/icons";
 import { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
+import { IoMenu, IoClose } from "react-icons/io5";
 
 export default function Header() {
   const [navOpened, setNavOpened] = useState(false);
@@ -28,7 +28,7 @@ export default function Header() {
           navOpened
             ? "shadow-none border-black border-b-[1px] border-opacity-100"
             : "shadow-md border-opacity-0"
-        } flex sticky top-0 w-full px-6 py-3 justify-between bg-color8 border-black transition-all duration-200`}
+        } flex sticky z-50 top-0 w-full px-6 lg:px-40 py-3 lg:py-6 justify-between items-center bg-color8 border-black transition-all duration-200`}
       >
         <Link
           href="/"
@@ -46,11 +46,57 @@ export default function Header() {
         <button
           id="toggle-nav"
           onClick={toggleNav}
-          className="transition-all duration-200 active:opacity-0"
+          className="transition-all duration-200 active:opacity-0 lg:hidden"
         >
           {/* <Menu className="w-fit"/> */}
-          {navOpened ? <X className="w-fit" /> : <Menu className="w-fit" />}
+          {navOpened ? (
+            <IoClose className="w-full" size={24} />
+          ) : (
+            <IoMenu className="w-fit" size={24} />
+          )}
         </button>
+        <div className="hidden lg:flex">
+          <Link
+            href="/"
+            className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
+          >
+            Home
+          </Link>
+          <Link
+            href="/map"
+            className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
+          >
+            Lihat Peta
+          </Link>
+          <Link
+            href="/community"
+            className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
+          >
+            Komunitas
+          </Link>
+          <Link
+            href="/article"
+            className="py-2 px-6 hover:text-color1 hover:opacity-80 transition-all duration-200"
+          >
+            Artikel
+          </Link>
+        </div>
+        {isLogged ? (
+          <Link
+            href="/dashboard"
+            className="hidden lg:inline p-6 rounded-full bg-slate-400"
+            onClick={handleLinkClick}
+          >
+          </Link>
+        ) : (
+          <Link
+            href="auth/login"
+            className="hidden lg:inline py-2 px-10 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
+            onClick={handleLinkClick}
+          >
+            Masuk
+          </Link>
+        )}
       </header>
 
       {/* <!-- Nav --> */}
@@ -60,7 +106,7 @@ export default function Header() {
           navOpened
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-0 pointer-events-none"
-        } flex fixed flex-col w-full py-4 text-color3 font-semibold shadow-md bg-color8 transition-all duration-500 ease-in-out transform`}
+        } lg:hidden flex fixed flex-col w-full z-50 py-4 text-color3 font-semibold shadow-md bg-color8 transition-all duration-500 ease-in-out transform`}
       >
         <Link
           href="/"
@@ -70,21 +116,21 @@ export default function Header() {
           Home
         </Link>
         <Link
-          href="map"
+          href="/map"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
           Lihat Peta
         </Link>
         <Link
-          href="community"
+          href="/community"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
           Komunitas
         </Link>
         <Link
-          href="article"
+          href="/article"
           className="py-2 px-6 hover:bg-gray-300"
           onClick={handleLinkClick}
         >
@@ -93,7 +139,7 @@ export default function Header() {
         <span className="bg-black h-[1px] mx-6"></span>
         {isLogged ? (
           <Link
-            href="/user"
+            href="/dashboard"
             className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
             onClick={handleLinkClick}
           >
@@ -101,7 +147,7 @@ export default function Header() {
           </Link>
         ) : (
           <Link
-            href="auth/login"
+            href="/auth/login"
             className="py-2 mx-6 mt-4 text-center bg-color1 hover:bg-opacity-[0.85] text-color5 rounded-md"
             onClick={handleLinkClick}
           >

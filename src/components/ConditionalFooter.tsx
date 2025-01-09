@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 export default function ConditionalFooter() {
   const pathname = usePathname();
-  const excludedRoutes = ["/auth", "/auth/login", "/auth/register"];
+  const excludedRoutes = ["/auth", "/auth/login", "/auth/register", "/map"];
   const isExcluded = excludedRoutes.some((route) => pathname.startsWith(route));
 
   return !isExcluded ? <Footer /> : null;

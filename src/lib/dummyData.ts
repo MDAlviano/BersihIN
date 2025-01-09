@@ -1,6 +1,6 @@
 import { Post } from "@/lib/types";
 
-export const posts: Post[] = [
+const posts: Post[] = [
   {
     id: 1,
     title: "Postingan 1",
@@ -46,6 +46,8 @@ export const posts: Post[] = [
     commentsCount: 69,
   },
 ];
+
+export default posts
 
 export const faqs = [
   {

@@ -1,4 +1,4 @@
-import { Plus, MoreHorizontal } from "@geist-ui/icons";
+import { IoIosAdd, IoIosMore } from "react-icons/io";
 import { Post } from "@/lib/types";
 
 interface PostCardProps {
@@ -29,7 +29,7 @@ export default function PostCard({ post }: PostCardProps) {
           </div>
         </div>
         <button className="flex w-fit max-h-fit px-2 py-1 gap-1 items-center text-xs text-color7 bg-color1 rounded-md border-2 border-color6">
-          Ikuti <Plus size={14} />
+          Ikuti <IoIosAdd size={14} />
         </button>
       </div>
 
@@ -56,7 +56,7 @@ export default function PostCard({ post }: PostCardProps) {
       <span className="w-full h-48 bg-slate-400">image</span>
 
       {/* Action bar */}
-      <div className="flex w-full gap-2">
+      <div className="flex w-full gap-2 items-center">
         <div className="flex bg-color1 py-1 rounded-lg font-light text-xs text-color7">
           <div className="px-2 h-full">{formatNumber(post.upvotes)}</div>
           <div className="px-2 border-l">v</div>
@@ -64,7 +64,7 @@ export default function PostCard({ post }: PostCardProps) {
         <div className="bg-color1 px-2 py-1 rounded-lg font-light text-xs text-color7">
           c {formatNumber(post.commentsCount)}
         </div>
-        <MoreHorizontal className="ml-auto" />
+        <IoIosMore className="ml-auto" />
       </div>
     </div>
   );

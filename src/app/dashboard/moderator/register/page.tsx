@@ -1,6 +1,8 @@
 
 import Image from "next/image";
-import exampleImg from "../../../../public/images/community.jpg";
+import exampleImg1 from "../../../../../public/images/community.jpg";
+import exampleImg2 from "../../../../../public/images/imgAccess.jpg";
+import exampleImg3 from "../../../../../public/images/imgCommunity.jpg";
 
 export default function Page() {
 
@@ -17,21 +19,21 @@ export default function Page() {
       <div className="flex flex-col w-full">
         <h4 className="text-sm lg:text-2xl font-semibold">1. Peningkatan Kepemimpinan Komunitas</h4>
         <div className="flex flex-row my-4">
-          <Image src={exampleImg} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
+          <Image src={exampleImg1} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
           <p className= "w-full lg:w-3/4 px-3 lg:px-10 text-[7px] lg:text-2xl font-extralight self-center">Sebagai moderator, Anda berperan penting dalam menjaga interaksi yang positif dan konstruktif, sekaligus memimpin komunitas untuk mencapai tujuan bersama</p>
         </div>
       </div>
       <div className="flex flex-col">
         <h4 className="text-sm lg:text-2xl font-semibold text-end">2. Akses Informasi Eksklusif</h4>
         <div className="flex flex-row-reverse my-4">
-          <Image src={exampleImg} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
+          <Image src={exampleImg2} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
           <p className="w-full lg:w-3/4 px-3 lg:px-10 text-[7px] lg:text-2xl font-extralight self-center">Moderator mendapatkan akses ke data laporan dan perkembangan terbaru di website, memberikan wawasan mendalam tentang masalah kebersihan lingkungan.</p>
         </div>
       </div>
       <div className="flex flex-col w-full">
         <h4 className="text-sm lg:text-2xl font-semibold">3. Kontribusi Nyata untuk Lingkungan</h4>
         <div className="flex flex-row my-4">
-          <Image src={exampleImg} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
+          <Image src={exampleImg3} alt="leadership" className="rounded-lg w-[150px] h-[90px] lg:w-[500px] lg:h-[330px]" />
           <p className="w-full lg:w-3/4 px-3 lg:px-10 text-[7px] lg:text-2xl font-extralight self-center">Dengan memvalidasi laporan dan memastikan tindak lanjutnya, moderator secara langsung berkontribusi pada terciptanya lingkungan yang lebih bersih dan sehat.</p>
         </div>
       </div>

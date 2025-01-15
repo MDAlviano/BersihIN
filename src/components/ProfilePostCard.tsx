@@ -1,7 +1,6 @@
 import { Post } from "@/lib/types";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import exampleImg from "../../public/images/example-banjir-kanal.png";
 
 interface ProfilePostCardProps {
   post: Post;
@@ -10,20 +9,20 @@ interface ProfilePostCardProps {
 export default function ProfilePostCard({ post }: ProfilePostCardProps) {
   return (
     <>
-      <div className="flex pb-4 gap-2">
-        <Image
-          className="w-24 h-full max-h-fit object-fill"
-          src=""
-          alt="Foto postingan"
-        ></Image>
-        <div className="flex flex-col flex-1">
-          <h5 className="text-[10px] font-semibold pb-1 border-b-2">
-            {post.title}
-          </h5>
-          <p className="text-[8px] ">19 jam yang lalu</p>
-          <Link href={`post/${post.id}`} className="pt-3 text-[10px]">
-            Baca selengkapnya...
-          </Link>
+      <div>
+        <div className="flex my-3 lg:my-7 lg:gap-2">
+          <Image
+            src={exampleImg}
+            alt="example image"
+            className="size-1/2 rounded-lg"
+          />
+          <div className="flex flex-col flex-1 my-5 mx-4">
+            <h5 className="lg:text-xl text-xs font-semibold">
+              {post.title}
+            </h5>
+            <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
+            <p className="lg:text-xs text-[8px] ">{post.posted}</p>
+          </div>
         </div>
       </div>
     </>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { IoAdd } from "react-icons/io5";
 import exampleTrashImg from "../../../../public/images/sampah_example.png";
+import Link from "next/link";
 
 export default function Page() {
   const indeks = "37.51";
@@ -36,9 +37,9 @@ export default function Page() {
           </div>
         </div>
         {/* add laporan button desktop */}
-        <button className="w-4/6 hidden lg:flex mx-auto py-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
+        <Link href="details/add" className="w-4/6 hidden lg:flex mx-auto py-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
           <IoAdd size={34} className="mx-auto" />
-        </button>
+        </Link>
       </div>
 
       {/* list laporan section */}
@@ -57,16 +58,16 @@ export default function Page() {
               <h6 className="text-[9px] lg:text-xs font-semibold my-1">
                 {data[1]} - {data[2]} yang lalu
               </h6>
-              <a href="/laporan" className="font-semibold mt-6 self-baseline text-sm text-color4">
+              <Link href="laporan" className="font-semibold mt-6 self-baseline text-sm text-color4">
                 Baca Selengkapnya...
-              </a>
+              </Link>
             </div>
           </div>
         ))}
         {/* add laporan button mobile */}
-        <button className="absolute lg:hidden bottom-5 right-7 p-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
+        <Link href="details/add" className="fixed lg:hidden bottom-16 right-8 p-3 rounded-md bg-color8 hover:bg-opacity-70 border border-color1">
           <IoAdd size={30} className="mx-auto" />
-        </button>
+        </Link>
       </div>
     </div>
   );

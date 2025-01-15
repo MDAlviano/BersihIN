@@ -5,8 +5,6 @@ import exampleImg from "../../../../../public/images/example-banjir-kanal.png";
 import { LuThumbsUp, LuThumbsDown, LuMessageCircleMore,  } from "react-icons/lu";
 import { GoPlus, GoChevronDown } from "react-icons/go";
 import { useState } from "react";
-import { IoAdd } from "react-icons/io5";
-import { FaRegComment } from "react-icons/fa";
 
 interface Params {
   id: string;

@@ -1,7 +1,28 @@
+'use client'
+
+import { useActionState } from "react"
+import { useFormStatus } from "react-dom";
+import { SignInCredentials } from "@/lib/action";
 import Link from "next/link";
 import Image from "next/image";
 
+const SignInButton = () => {
+  const {pending} = useFormStatus()
+
+  return (
+    <button
+      type="submit"
+      disabled={ pending }
+      className="py-3 text-color5 font-semibold bg-color1 rounded-md"
+    >
+      { pending ? "Tunggu sebentar.." : "Masuk" }
+    </button>
+  )
+}
+
 export default function Page() {
+  const [state, formAction] = useActionState(SignInCredentials, null)
+
   return (
     <div className="w-full h-screen flex flex-col gap-8 py-8 px-10 items-center bg-color7">
       {/* Logo */}
@@ -26,28 +47,35 @@ export default function Page() {
 
         {/* <!-- Login Form --> */}
         <form
-          method=""
-          action=""
+          action={ formAction }
           className="flex flex-col item gap-1 w-full mt-4"
         >
+          {/* Error Message */}
+          { state?.message ? (
+            <div className="p-4 mb-2 text-sm text-red-800 rounded-lg bg-red-100" role="alert">
+              <span className="font-medium">{ state?.message }</span>
+            </div>
+          ) : null }
+
           {/* <!-- Email --> */}
-          <label className="font-semibold">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email-form"
-            required
-            placeholder="contoh@gmail.com"
-            className="w-full p-2 border-color2 border rounded-md"
-          />
+          <div>
+            <label className="font-semibold">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="contoh@gmail.com"
+              className="w-full p-2 border-color2 border rounded-md"
+            />
+            <div aria-live="polite" aria-atomic="true">
+              <span className="text-sm text-red-500 mt-2">{state?.error?.email}</span>
+            </div>
+          </div>
 
           {/* <!-- Password --> */}
           <label className="font-semibold">Password</label>
           <input
             type="password"
             name="password"
-            id="password-form"
-            required
             placeholder="••••••••"
             className="w-full p-2 border-color2 border rounded-md"
           />
@@ -59,7 +87,6 @@ export default function Page() {
                 type="checkbox"
                 name="remember"
                 id="remember"
-                required
                 className="p-10 border border-color2"
               />
               <label className="text-sm">Ingat saya</label>
@@ -69,13 +96,8 @@ export default function Page() {
             </Link>
           </div>
 
-          {/* <!-- Login btn --> */}
-          <button
-            type="submit"
-            className="py-3 text-color5 font-semibold bg-color1 rounded-md"
-          >
-            Masuk
-          </button>
+          {/* SignIn btn */}
+          <SignInButton />
 
           <div className="flex items-center my-1">
             <span className="w-full h-[1px] bg-[#BBBBBB]"></span>
@@ -89,10 +111,11 @@ export default function Page() {
           </button>
         </form>
       </div>
+
       {/* <!-- Sign up redirect --> */}
       <div className="text-sm mb-4">
         Belum punya akun?
-        <Link href="register" className="ml-1 text-color1">
+        <Link href="/auth/register" className="ml-1 text-color1">
           Daftar di sini.
         </Link>
       </div>

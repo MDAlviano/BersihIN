@@ -75,11 +75,11 @@ export default function Home() {
 
       {/* Community */}
       <section id="community" className="flex flex-col gap-1 px-10 lg:px-80">
-        <h1 className="text-2xl font-semibold">Komunitas</h1>
-        <h4 className="text-sm font-light">
+        <h1 className="text-2xl lg:text-4xl font-semibold">Komunitas</h1>
+        <h4 className="text-sm lg:text-lg font-light">
           Bergabung bersama kami dan dapatkan manfaatnya!
         </h4>
-        <div className="w-full max-w-full overflow-x-auto scroll-smooth snap-x snap-mandatory">
+        <div className="w-full max-w-full lg:max-w-4xl self-center overflow-x-auto scroll-smooth snap-x snap-mandatory">
           <div className="flex w-max mt-2">
             {commItems.map((item) => (
               <CommunityItem key={item.id} id={item.id} image={item.image} title={item.title} description={item.description}/>

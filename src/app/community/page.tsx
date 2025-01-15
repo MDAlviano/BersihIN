@@ -34,23 +34,26 @@ export default function Page() {
         </button>
       </div>
       {/* Add post */}
-      <div className="flex px-6 py-3 gap-2 items-center bg-color8">
+      <div className="flex px-6 py-3 mb-4 gap-2 items-center bg-color8">
         <span className="p-4 rounded-full bg-slate-400"></span>
-        <button className="w-full px-2 py-2 text-start text-sm font-light rounded-md border border-color2 bg-color7">
+        <Link href="/community/new" className="w-full px-2 py-2 text-start text-sm font-light rounded-md border border-color2 bg-color7">
           Ingin membagikan sesuatu?
-        </button>
+        </Link>
       </div>
 
       {/* Main */}
-      {posts.map((post) => (
-        <Link
-          href={`community/${post.id}`}
-          key={post.id}
-          className="flex flex-col"
-        >
-          <PostCard post={post} />
-        </Link>
-      ))}
+      <div className="flex flex-col gap-4">
+        {posts.map((post) => (
+          <Link
+            // href={`community/${post.id}`}
+            key={post.id}
+            href="community/post/detail"
+            className="flex flex-col"
+          >
+            <PostCard post={post} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

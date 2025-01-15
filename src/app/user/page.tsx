@@ -5,39 +5,8 @@ import { useState } from "react";
 import { IoIosMore } from "react-icons/io";
 import exampleImg from "../../../public/images/example-banjir-kanal.png";
 import Image from "next/image";
-
-function Postingan() {
-  return (
-    <div>
-      <div className="flex my-3 lg:my-7 lg:gap-2">
-        <Image src={exampleImg} alt="example image" className="size-1/2 rounded-lg" />
-        <div className="flex flex-col flex-1 my-5 mx-4">
-          <h5 className="lg:text-xl text-xs font-semibold">Update kondisi banjir kanal saat ini</h5>
-          <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-        </div>
-      </div>
-
-      <div className="flex my-4 gap-2">
-        <Image src={exampleImg} alt="example image" className="size-1/2 rounded-lg" />
-        <div className="flex flex-col flex-1 my-5 mx-4">
-          <h5 className="lg:text-xl text-xs font-semibold">Update kondisi banjir kanal saat ini</h5>
-          <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-        </div>
-      </div>
-
-      <div className="flex my-4 gap-2">
-        <Image src={exampleImg} alt="example image" className="size-1/2 rounded-lg" />
-        <div className="flex flex-col flex-1 my-5 mx-4">
-          <h5 className="lg:text-xl text-xs font-semibold">Update kondisi banjir kanal saat ini</h5>
-          <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
-          <p className="lg:text-xs text-[8px] ">19 jam yang lalu</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import ProfilePostCard from "@/components/ProfilePostCard";
+import posts from "@/lib/dummyData";
 
 function Laporan() {
   const laporanData = [
@@ -50,9 +19,15 @@ function Laporan() {
       {laporanData.map((laporan) => (
         <Link key={laporan.id} href={`/laporan/${laporan.id}`}>
           <div className="flex my-3 lg:my-7 lg:gap-2">
-            <Image src={exampleImg} alt="example image" className="size-1/2 rounded-lg" />
+            <Image
+              src={exampleImg}
+              alt="example image"
+              className="size-1/2 rounded-lg"
+            />
             <div className="flex flex-col flex-1 my-5 mx-4">
-              <h5 className="lg:text-xl text-xs font-semibold">{laporan.title}</h5>
+              <h5 className="lg:text-xl text-xs font-semibold">
+                {laporan.title}
+              </h5>
               <span className="my-2 h-[1px] bg-[#D9D9D9] w-full"></span>
               <p className="lg:text-xs text-[8px]">{laporan.time}</p>
             </div>
@@ -90,32 +65,54 @@ export default function Page() {
 
         <div className="lg:px-36">
           <div>
-            <h2 className="font-semibold lg:text-xl text-sm">Inspektur Alviano Sigmatus</h2>
+            <h2 className="font-semibold lg:text-xl text-sm">
+              Inspektur Alviano Sigmatus
+            </h2>
             <p className="font-light lg:text-lg text-xs">@sigmavin</p>
-            <p className="pt-1 lg:text-lg text-xs">Inspektur kebersihan lokal area Gayamsari</p>
+            <p className="pt-1 lg:text-lg text-xs">
+              Inspektur kebersihan lokal area Gayamsari
+            </p>
           </div>
           <div className="flex lg:my-5 my-3 lg:text-base text-[11px] lg:gap-5 gap-2">
-            <button id="follow-btn" className="bg-none border-2 hover:bg-color1 hover:text-white transition duration-150 border-color1 rounded-xl w-full text-color1 font-semibold">
+            <button
+              id="follow-btn"
+              className="bg-none border-2 hover:bg-color1 hover:text-white transition duration-150 border-color1 rounded-xl w-full text-color1 font-semibold"
+            >
               Ikuti
             </button>
-            <button id="more-btn" className="w-fit p-[6px] lg:p-2 bg-color1 hover:opacity-80 transition duration-100 rounded-xl">
+            <button
+              id="more-btn"
+              className="w-fit p-[6px] lg:p-2 bg-color1 hover:opacity-80 transition duration-100 rounded-xl"
+            >
               <IoIosMore color="#fff" />
             </button>
           </div>
         </div>
 
         <div className="flex my-2 lg:px-72 px-10 gap-2 lg:text-base text-xs font-medium justify-around lg:justify-between">
-          <p className={`cursor-pointer ${activeTab === "postingan" ? "text-blue-500" : "text-gray-500"}`} onClick={() => setActiveTab("postingan")}>
+          <p
+            className={`cursor-pointer ${
+              activeTab === "postingan" ? "text-blue-500" : "text-gray-500"
+            }`}
+            onClick={() => setActiveTab("postingan")}
+          >
             Postingan
           </p>
-          <p className={`cursor-pointer ${activeTab === "laporan" ? "text-blue-500" : "text-gray-500"}`} onClick={() => setActiveTab("laporan")}>
+          <p
+            className={`cursor-pointer ${
+              activeTab === "laporan" ? "text-blue-500" : "text-gray-500"
+            }`}
+            onClick={() => setActiveTab("laporan")}
+          >
             Laporan
           </p>
         </div>
       </div>
 
       <div className="flex flex-col lg:px-60 lg:pb-6 px-6 lg:pt-8 pt-4 rounded-b-md bg-color5 shadow-lg">
-        {activeTab === "postingan" && <Postingan />}
+        {activeTab === "postingan" && posts.map((post) => (
+          <ProfilePostCard key={post.id} post={post}/>
+        ))}
         {activeTab === "laporan" && <Laporan />}
       </div>
     </main>
